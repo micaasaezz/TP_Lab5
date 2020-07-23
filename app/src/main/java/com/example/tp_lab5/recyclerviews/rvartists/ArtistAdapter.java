@@ -58,6 +58,15 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistViewHolder> implem
         holder.tvName.setText(a.getName());
         if(a.getImg() != null) {
             holder.ivPicture.setImageBitmap(BitmapFactory.decodeByteArray(a.getImg(),0, a.getImg().length));
+        } else {
+            ArtistsThreadsHandler threadsHandler = new ArtistsThreadsHandler(MainActivity.mainActivity, this);
+            ArtistsThread m = new ArtistsThread(
+                    threadsHandler,
+                    a.getHeader_image_url(),
+                    false,
+                    Integer.parseInt(a.getId())
+            );
+            m.start();
         }
     }
 

@@ -35,12 +35,6 @@ public class SongThreadsHandler implements Handler.Callback {
                     songAdapter.notifyDataSetChanged();
                 }
             });
-            SongThreadsHandler threadsHandler = new SongThreadsHandler(this.activity, this.adapter);
-            for (int i = 0; i < listaSongs.size(); i++) {
-                String url = listaSongs.get(i).getSong_art_image_url();
-                SongThread thread = new SongThread(threadsHandler, url,false, i);
-                thread.start();
-            }
         } else if(msg.arg1 == IMAGEN) {
             final byte[] image = (byte[]) msg.obj;
             final SongAdapter adapter = this.adapter;

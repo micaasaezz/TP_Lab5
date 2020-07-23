@@ -26,11 +26,13 @@ import java.util.List;
 public class SongListActivity extends AppCompatActivity  implements SearchView.OnQueryTextListener {
 
     public static List<Song> songList = null;
+    public static SongListActivity songListActivity = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_list);
-
+        songListActivity = this;
         ActionBar toolbar = getSupportActionBar();
         toolbar.setDisplayHomeAsUpEnabled(true);
 

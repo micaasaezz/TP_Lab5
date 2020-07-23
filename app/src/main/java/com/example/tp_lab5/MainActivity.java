@@ -21,11 +21,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static int TEXT = 1;
     public static int IMAGEN = 2;
+    public static MainActivity mainActivity = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainActivity.mainActivity = this;
 
         final List<Artist> artistList = new ArrayList<>();
         ArtistAdapter artistAdapter = new ArtistAdapter(artistList);
